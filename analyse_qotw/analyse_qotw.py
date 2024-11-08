@@ -35,5 +35,4 @@ for i in cols:
 
 plt.savefig('./scatter.png')
 
-with open('./analysistable.txt', 'w', encoding='utf8') as file:
-    print(analysis, file=file)
+analysis.to_csv('./analysistable.csv')
