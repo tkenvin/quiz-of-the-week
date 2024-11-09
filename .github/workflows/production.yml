@@ -10,16 +10,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - name: Build and run dev container task
       uses: devcontainers/ci@v0.3
       with:
         runCmd: ./make.sh
-    - uses: azure/login@v1
+        push: never
+    - uses: azure/login@v2
       with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Upload to blob storage
       uses: azure/CLI@v1
       with:
         inlineScript: |
-            az storage blob upload-batch --account-name assetstomsloftnetprodst --auth-mode key -d '$web' -s output
+            az storage blob upload-batch --account-name assetstomsloftnetprodst --overwrite true --auth-mode key -d '$web' -s output
