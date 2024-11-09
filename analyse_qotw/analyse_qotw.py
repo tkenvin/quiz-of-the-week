@@ -32,6 +32,8 @@ for i in cols:
     group = groups.get_group(i)
     analysis[i] = group[NUMERATOR].describe()
     plt.scatter(group[DATE], group[NUMERATOR])
+analysis = analysis.transpose()
+analysis.index.names = ['denominator']
 
 plt.savefig('./scatter.png')
 
