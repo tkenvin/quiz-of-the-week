@@ -18,6 +18,4 @@ ipython_config.py
 # End of https://www.toptal.com/developers/gitignore/api/jupyternotebooks
 
 qotw-output.csv
-analysistable.csv
-scatter.png
-counts_bar.png
+output/*
