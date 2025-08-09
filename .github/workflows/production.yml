@@ -15,7 +15,6 @@ jobs:
       uses: devcontainers/ci@v0.3
       with:
         runCmd: |
-          mkdir output
           jupyter execute analyse_qotw/Analysis.ipynb
         push: never
     - uses: azure/login@v2
